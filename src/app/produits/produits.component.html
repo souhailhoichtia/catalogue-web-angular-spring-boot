@@ -7,6 +7,13 @@
       </button>
     </div>
     <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+        <div class="form-group">
+          <label>keyword</label>
+          <input type="text" name="keyword" ngModel />
+          <button class="btn btn-primary" type="submit">chercher</button>
+        </div>
+      </form>
       <table *ngIf="produits" class="table table-striped">
         <thead>
           <tr>

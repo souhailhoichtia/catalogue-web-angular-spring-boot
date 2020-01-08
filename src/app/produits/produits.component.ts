@@ -32,4 +32,19 @@ export class ProduitsComponent implements OnInit {
     this.currentPage = i;
     this.onGetProducts();
   }
+  onChercher(value: any) {
+    console.log(value);
+    this.catalogueService
+      .getProductByDesignation(this.size, this.currentPage, value.keyword)
+      .subscribe(
+        data => {
+          this.totalPages = data["page"].totalPages;
+          this.pages = new Array<number>(this.totalPages);
+          this.produits = data;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
 }
