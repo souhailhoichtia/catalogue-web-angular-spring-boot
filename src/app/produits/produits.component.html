@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">liste des produits</div>
+    <div class="panel-body">
+      <button class="btn btn-primary" (click)="onGetProducts()">
+        Produits
+      </button>
+    </div>
+    <div class="panel-body">
+      <table *ngIf="produits" class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>desighation</th>
+            <th>prix</th>
+            <th>qte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of produits._embedded.produits">
+            <td>{{ p.id }}</td>
+            <td>{{ p.designation }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
