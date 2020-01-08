@@ -38,12 +38,7 @@ export class ProduitsComponent implements OnInit {
     this.currentPage = 0;
     this.chercherProduits();
   }
-  onclick(p) {
-    const conf = confirm("etes vous sur?");
-    if (conf) {
-      console.log(p);
-    }
-  }
+
   chercherProduits() {
     this.catalogueService
       .getProductByDesignation(
@@ -61,5 +56,26 @@ export class ProduitsComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+  onClickDelete(p) {
+    console.log(p);
+    const conf = confirm("etes vous sur?");
+    if (conf) {
+      this.catalogueService.deteleRessource(p._links.self.href).subscribe(
+        data => {
+          this.chercherProduits();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+
+      //       this.catalogueService.deteleRessource(p._links.self.href)
+      //         .subscribe(data => {
+      // this.chercherProduits();
+      //         },err{
+      // console.log(err);
+      //         });
+    }
   }
 }

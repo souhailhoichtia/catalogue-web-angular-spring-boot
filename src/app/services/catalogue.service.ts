@@ -25,4 +25,7 @@ export class CatalogueService {
         page
     );
   }
+  public deteleRessource(url) {
+    return this.httpClient.delete(url);
+  }
 }
