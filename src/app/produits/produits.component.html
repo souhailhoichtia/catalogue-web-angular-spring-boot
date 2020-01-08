@@ -25,6 +25,21 @@
           </tr>
         </tbody>
       </table>
+      <!-- <nav class="nav">
+        <li *ngFor="let p of pages; let i = index" class="nav-item">
+          <a class="nav-link" href="#">{{ i }}</a>
+        </li>
+      </nav> -->
+      <ul *ngIf="pages" class="nav nav-pills">
+        <li class="nav-item" *ngFor="let p of pages; let i = index">
+          <a
+            [ngClass]="i == currentPage ? 'active' : ''"
+            (click)="onPageProduct(i)"
+            class="nav-link clickoble"
+            >{{ i }}</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </div>
