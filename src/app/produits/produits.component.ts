@@ -13,6 +13,7 @@ export class ProduitsComponent implements OnInit {
   currentPage = 0;
   totalPages: number = 0;
   pages: Array<number>;
+  searchedDesignation: string = "";
   constructor(private catalogueService: CatalogueService) {}
 
   ngOnInit() {}
@@ -30,12 +31,17 @@ export class ProduitsComponent implements OnInit {
   }
   onPageProduct(i: number) {
     this.currentPage = i;
-    this.onGetProducts();
+    this.onChercher({ keyword: this.searchedDesignation });
   }
   onChercher(value: any) {
+    this.searchedDesignation = value.keyword;
     console.log(value);
     this.catalogueService
-      .getProductByDesignation(this.size, this.currentPage, value.keyword)
+      .getProductByDesignation(
+        this.size,
+        this.currentPage,
+        this.searchedDesignation
+      )
       .subscribe(
         data => {
           this.totalPages = data["page"].totalPages;
