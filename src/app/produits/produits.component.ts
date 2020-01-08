@@ -31,11 +31,15 @@ export class ProduitsComponent implements OnInit {
   }
   onPageProduct(i: number) {
     this.currentPage = i;
-    this.onChercher({ keyword: this.searchedDesignation });
+    this.chercherProduits();
   }
   onChercher(value: any) {
     this.searchedDesignation = value.keyword;
-    console.log(value);
+    this.currentPage = 0;
+    this.chercherProduits();
+  }
+
+  chercherProduits() {
     this.catalogueService
       .getProductByDesignation(
         this.size,
