@@ -29,6 +29,10 @@
             <td>{{ p.designation }}</td>
             <td>{{ p.price }}</td>
             <td>{{ p.quantity }}</td>
+
+            <button class="btn btn-danger" (click)="onclick(p)">
+              delete
+            </button>
           </tr>
         </tbody>
       </table>

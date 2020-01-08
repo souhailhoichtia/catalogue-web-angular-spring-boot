@@ -38,7 +38,12 @@ export class ProduitsComponent implements OnInit {
     this.currentPage = 0;
     this.chercherProduits();
   }
-
+  onclick(p) {
+    const conf = confirm("etes vous sur?");
+    if (conf) {
+      console.log(p);
+    }
+  }
   chercherProduits() {
     this.catalogueService
       .getProductByDesignation(
