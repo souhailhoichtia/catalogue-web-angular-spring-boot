@@ -28,4 +28,7 @@ export class CatalogueService {
   public deteleRessource(url) {
     return this.httpClient.delete(url);
   }
+  public addRessource(url, data) {
+    return this.httpClient.post(url, data);
+  }
 }
