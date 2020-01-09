@@ -1,11 +1,7 @@
 <div class="container">
   <div class="panel panel-primary">
-    <div class="panel-heading">liste des produits</div>
-    <div class="panel-body">
-      <button class="btn btn-primary" (click)="onGetProducts()">
-        Produits
-      </button>
-    </div>
+    <div class="card-header">liste des produits</div>
+    <div class="panel-body"></div>
     <div class="panel-body">
       <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
         <div class="form-group">
@@ -18,7 +14,7 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>desighation</th>
+            <th>Designation</th>
             <th>prix</th>
             <th>qte</th>
           </tr>
